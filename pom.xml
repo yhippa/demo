@@ -14,6 +14,19 @@
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
 
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>DC Dojo Releases</name>
+			<url>http://localhost:8081/repository/dcdojo-release/</url>
+		</repository>
+		<repository>
+				<id>nexus</id>
+				<name>DC Dojo Snapshots</name>
+				<url>http://localhost:8081/repository/dcdojo-snapshot/</url>
+			</repository>
+	</repositories>
+
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
