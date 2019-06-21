@@ -1,9 +1,19 @@
 pipeline {
     agent any
+    tools {
+        maven 'maven3';
+        jdk 'jdk8';
+    }
     stages {
-        stage('Hello') {
+        stage('build') {
             steps {
-                echo 'Hello DC team! This is your first pipeline :-)'
+                sh 'mvn clean install'
+            }
+            post {
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
             }
         }
     }
