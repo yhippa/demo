@@ -16,6 +16,7 @@ pipeline {
                 }
             }
         }
+        /*
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonarcloud') {
@@ -37,5 +38,6 @@ pipeline {
                 sh 'mvn deploy'
             }
         }
+        */
     }
 }
