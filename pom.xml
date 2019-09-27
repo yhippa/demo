@@ -1,56 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.6.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
-
-	<distributionManagement>
-		<repository>
-			<id>nexus</id>
-			<name>DC Dojo Releases</name>
-			<url>http://localhost:8081/repository/dcdojo-release/</url>
-		</repository>
-		<snapshotRepository>
-			<id>nexus</id>
-			<name>DC Dojo Snapshots</name>
-			<url>http://localhost:8081/repository/dcdojo-snapshot/</url>
-		</snapshotRepository>
-	</distributionManagement>
-
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>2.1.6.RELEASE</version>
+      <relativePath />
+      <!-- lookup parent from repository -->
+   </parent>
+   <groupId>com.example</groupId>
+   <artifactId>demo</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+   <name>demo</name>
+   <description>Demo project for Spring Boot</description>
+   <distributionManagement>
+      <repository>
+         <id>nexus</id>
+         <name>DC Dojo Releases</name>
+         <url>http://localhost:8081/repository/dcdojo-release/</url>
+      </repository>
+      <snapshotRepository>
+         <id>nexus</id>
+         <name>DC Dojo Snapshots</name>
+         <url>http://localhost:8081/repository/dcdojo-snapshot/</url>
+      </snapshotRepository>
+   </distributionManagement>
+   <properties>
+      <java.version>1.8</java.version>
+   </properties>
+   <dependencies>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-test</artifactId>
+         <scope>test</scope>
+      </dependency>
+   </dependencies>
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+         </plugin>
+         <plugin>
+            <groupId>com.google.cloud.tools</groupId>
+            <artifactId>jib-maven-plugin</artifactId>
+            <version>1.3.0</version>
+            <configuration>
+               <to>
+                  <image>localhost:8088/dcdojo</image>
+                  <auth>
+                     <username>admin</username>
+                     <password>admin123</password>
+                  </auth>
+               </to>
+               <allowInsecureRegistries>true</allowInsecureRegistries>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
 </project>
